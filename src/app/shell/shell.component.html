@@ -1,0 +1,66 @@
+<div fxFlex>
+  <mat-sidenav-container fxFill>
+    <mat-sidenav #sidenav [mode]="isMobile ? 'over' : 'side'" [opened]="!isMobile" [disableClose]="!isMobile">
+      <div fxLayout="column" class="navigator">
+        <nav>
+          <!-- TODO: Criar dimensionamento automático da lista de menus acessíveis para o usuário logado -->
+          <div class="nav-header">
+            <button mat-icon-button (click)="btnClick('home')">
+              <img src="../../assets/severa.png" class="nav-logo" />
+            </button>
+          </div>
+          <div>
+            <a>
+              <button mat-icon-button (click)="btnClick('home')"><mat-icon>home</mat-icon></button>
+            </a>
+          </div>
+          <div>
+            <a>
+              <button mat-icon-button (click)="btnClick('users')"><mat-icon>people_outline</mat-icon></button>
+            </a>
+          </div>
+          <div>
+            <a>
+              <button mat-icon-button (click)="btnClick('workday')"><mat-icon>work_outline</mat-icon></button>
+            </a>
+          </div>
+          <div>
+            <a>
+              <button mat-icon-button (click)="btnClick('about')"><mat-icon>info</mat-icon></button>
+            </a>
+          </div>
+          <div class="nav-footer">
+            <div>
+              <button mat-icon-button [matMenuTriggerFor]="userMenu" translate>
+                <img src="../../assets/perfil.png" class="nav-logo" />
+              </button>
+              <mat-menu #userMenu="matMenu">
+                <mat-list>
+                  <mat-list-item>
+                    <span translate>Logged in as</span>&nbsp;<b>{{ username }}</b>
+                  </mat-list-item>
+                  <mat-divider></mat-divider>
+                </mat-list>
+                <button mat-menu-item (click)="btnClick('profile')">
+                  <mat-icon>person_outline</mat-icon>
+                  <span translate>Profile</span>
+                </button>
+                <button mat-menu-item (click)="logout()" translate>
+                  <mat-icon>exit_to_app</mat-icon>
+                  <span translate>Logout</span>
+                </button>
+              </mat-menu>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary" class="mat-elevation-z6 top-bar" style="z-index: 99999999">
+        <button mat-icon-button *ngIf="isMobile" (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+        <span class="font-pacifico">{{ title }}</span>
+      </mat-toolbar>
+      <div class="content"><router-outlet></router-outlet></div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

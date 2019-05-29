@@ -1,0 +1,33 @@
+.main {
+  width: 100%;
+
+  .header {
+    .toolbar {
+      height: 300px;
+      text-align: center;
+    }
+  }
+
+  .content {
+    height: 100%;
+
+    .content-card {
+      position: relative;
+      top: -100px;
+      margin: 40px;
+      height: 100%;
+
+      .userPhoto {
+        width: 200px;
+        height: 200px;
+        margin: auto;
+        background-color: white;
+        border-radius: 50%;
+        position: relative;
+        top: -120px;
+        box-shadow: 0px 5px 30px -10px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+          0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+      }
+    }
+  }
+}

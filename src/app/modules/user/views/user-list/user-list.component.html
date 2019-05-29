@@ -1,0 +1,55 @@
+<div id="main">
+  <div id="main-content">
+    <div id="header">
+      <div id="search-box">
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label><span translate>Filter</span></mat-label>
+          <input matInput (keyup)="applyFilter($event.target.value)" />
+          <mat-icon matSuffix>search_outline</mat-icon>
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-mini-fab (click)="getAllUsers()" class="refreshButton"><mat-icon>cached</mat-icon></button>
+      </div>
+    </div>
+
+    <div id="content">
+      <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="username">
+          <th mat-header-cell *matHeaderCellDef translate>Username</th>
+          <td mat-cell *matCellDef="let element">{{ element.username }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef translate>Email</th>
+          <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="action" stickyEnd>
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">
+            <div class="action-buttons-grid-container">
+              <div>
+                <button mat-icon-button color="primary"><mat-icon (click)="showDialog(element)">edit</mat-icon></button>
+              </div>
+              <div>
+                <button mat-icon-button color="warn"><mat-icon (click)="destroy(element.id)">delete</mat-icon></button>
+              </div>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+
+    <div id="footer"></div>
+
+    <div [ngClass]="{ 'fab-mobile': isMobile, fab: !isMobile }" class="fab">
+      <span class="fab-action-button">
+        <button mat-fab color="accent" (click)="showDialog()"><mat-icon>add</mat-icon></button>
+      </span>
+    </div>
+  </div>
+</div>

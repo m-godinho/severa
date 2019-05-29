@@ -1,0 +1,119 @@
+/*
+ * Application global variables.
+ */
+
+// Angular Material custom theme
+// See https://material.angular.io/guide/theming for more details.
+//
+// You can also read https://medium.com/@tomastrajan/the-complete-guide-to-angular-material-themes-4d165a9d24d1
+// for more insight about Angular Material theming.
+
+@import "~@angular/material/theming";
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+
+$md-primary-pallet: (
+  50: #e9eaf0,
+  100: #c8cada,
+  200: #a3a7c1,
+  300: #7e83a8,
+  400: #626995,
+  500: #464e82,
+  600: #3f477a,
+  700: #373d6f,
+  800: #2f3565,
+  900: #202552,
+  A100: #959eff,
+  A200: #626fff,
+  A400: #2f40ff,
+  A700: #1529ff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff
+  )
+);
+
+$md-warn-pallet: (
+  50: #f0e9e9,
+  100: #d9c8c8,
+  200: #c0a3a3,
+  300: #a77e7e,
+  400: #946262,
+  500: #814646,
+  600: #793f3f,
+  700: #6e3737,
+  800: #642f2f,
+  900: #512020,
+  A100: #ff9494,
+  A200: #ff6161,
+  A400: #ff2e2e,
+  A700: #ff1414,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #ffffff,
+    A700: #ffffff
+  )
+);
+
+$md-accent-pallet: (
+  50: #f0e9f0,
+  100: #d9c8d9,
+  200: #c0a3c0,
+  300: #a77ea7,
+  400: #946294,
+  500: #814681,
+  600: #793f79,
+  700: #6e376e,
+  800: #642f64,
+  900: #512051,
+  A100: #ff94ff,
+  A200: #ff61ff,
+  A400: #ff2eff,
+  A700: #ff14ff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #ffffff
+  )
+);
+$app-primary: mat-palette($md-primary-pallet, 700);
+$app-accent: mat-palette($md-accent-pallet, 700);
+$app-warn: mat-palette($md-warn-pallet, 700);
+// Create the theme object (a Sass map containing all of the palettes).
+$app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);

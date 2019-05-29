@@ -1,0 +1,154 @@
+<div class="grid-container">
+  <mat-grid-list cols="3" rowHeight="350px">
+    <mat-grid-tile [colspan]="isMobile ? 3 : 2" rowspan="1">
+      <mat-card class="card">
+        <mat-card-header>
+          <mat-card-title>
+            <span translate>Graphs</span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="card-content">
+          <div style="text-align: center;">
+            <img src="../../../../assets/charts.png" style="max-height: 200px; max-width: 200px;" />
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="isMobile ? 3 : 1" rowspan="2">
+      <mat-card class="card">
+        <mat-card-header>
+          <mat-card-title>
+            <span translate>Tasks of the day</span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="card-content">
+          <div style="text-align: center;">
+            <img src="../../../../assets/checklist.png" style="max-height: 200px; max-width: 200px;" />
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="isMobile ? 3 : 2" rowspan="2">
+      <mat-card class="card">
+        <mat-card-header>
+          <mat-card-title>
+            <span translate>Monthly work summary</span>
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>
+                <span translate>Print</span>
+              </button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="card-content">
+          <div style="text-align: center;">
+            <img src="../../../../assets/timeline.png" style="max-height: 350px; max-width: 350px;" />
+            <app-worklog-table-list></app-worklog-table-list>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="isMobile ? 3 : 1" rowspan="1">
+      <mat-card class="card">
+        <mat-card-header>
+          <mat-card-title>
+            <span translate>Next birthdays</span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="card-content">
+          <div style="text-align: center;">
+            <img src="../../../../assets/birthday.png" style="max-height: 200px; max-width: 200px;" />
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="3" rowspan="1">
+      <mat-card class="card">
+        <mat-card-header>
+          <mat-card-title>
+            <span translate>News</span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="card-content">
+          <div style="text-align: center;">
+            <img src="../../../../assets/news.png" style="max-height: 350px; max-width: 350px;" />
+          </div>
+          <!--
+          <cdk-virtual-scroll-viewport itemSize="10" class="news-scroll">
+            <div class="scroll-content">
+              <div class="news-element">
+                <mat-card>
+                  <mat-card-header>
+                    <div mat-card-avatar class="news-element-header"></div>
+                    <mat-card-title>Shiba Inu</mat-card-title>
+                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                  </mat-card-header>
+                  <img
+                  mat-card-image
+                  src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                  alt="Photo of a Shiba Inu"
+                  />
+                  <mat-card-content>
+                    <p>
+                      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A
+                      small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred
+                      for hunting.
+                    </p>
+                  </mat-card-content>
+                  <mat-card-actions> <button mat-raised-button color="primary">Read more</button> </mat-card-actions>
+                </mat-card>
+              </div>
+            </div>
+          </cdk-virtual-scroll-viewport>
+          -->
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="3" rowspan="1">
+      <mat-card class="card">
+        <mat-card-header>
+          <mat-card-title>
+            <span translate>Absences</span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="card-content">
+          <div style="text-align: center;">
+            <img src="../../../../assets/people_search.png" style="max-height: 200px; max-width: 200px;" />
+          </div>
+          <!--
+          <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="50" class="absences-scroll">
+            <div class="scroll-content">
+              <div style="width: 100px; height: 100px; border-radius: 50%; background-color: blueviolet"></div>
+              <div style="width: 100px; height: 100px; border-radius: 50%; background-color: blueviolet"></div>
+              <div style="width: 100px; height: 100px; border-radius: 50%; background-color: blueviolet"></div>
+              <div style="width: 100px; height: 100px; border-radius: 50%; background-color: blueviolet"></div>
+              <div style="width: 100px; height: 100px; border-radius: 50%; background-color: blueviolet"></div>
+              <div style="width: 100px; height: 100px; border-radius: 50%; background-color: blueviolet"></div>
+              <div style="width: 100px; height: 100px; border-radius: 50%; background-color: blueviolet"></div>
+              <div style="width: 100px; height: 100px; border-radius: 50%; background-color: blueviolet"></div>
+              <div style="width: 100px; height: 100px; border-radius: 50%; background-color: blueviolet"></div>
+              <div style="width: 100px; height: 100px; border-radius: 50%; background-color: blueviolet"></div>
+              <div style="width: 100px; height: 100px; border-radius: 50%; background-color: blueviolet"></div>
+              <div style="width: 100px; height: 100px; border-radius: 50%; background-color: blueviolet"></div>
+              <div style="width: 100px; height: 100px; border-radius: 50%; background-color: blueviolet"></div>
+              <div style="width: 100px; height: 100px; border-radius: 50%; background-color: blueviolet"></div>
+              <div style="width: 100px; height: 100px; border-radius: 50%; background-color: blueviolet"></div>
+              <div style="width: 100px; height: 100px; border-radius: 50%; background-color: blueviolet"></div>
+              <div style="width: 100px; height: 100px; border-radius: 50%; background-color: blueviolet"></div>
+              <div style="width: 100px; height: 100px; border-radius: 50%; background-color: blueviolet"></div>
+            </div>
+          </cdk-virtual-scroll-viewport>
+          -->
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

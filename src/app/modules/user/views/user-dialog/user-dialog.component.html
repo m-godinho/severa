@@ -1,0 +1,59 @@
+<div>
+  <form [formGroup]="userForm">
+    <span mat-dialog-title class="font-pacifico" translate>User Registration</span>
+
+    <mat-form-field style="width: 100%" appearance="outline">
+      <mat-label><span translate>Username</span></mat-label>
+      <input matInput type="text" formControlName="username" maxlength="30" />
+      <mat-error *ngIf="userForm.controls.username.hasError('required')">
+        <span translate>Username is required</span>
+      </mat-error>
+      <mat-error *ngIf="userForm.controls.username.hasError('minlength')">
+        <span translate>Username must be longer than 6 characters</span>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field style="width: 100%" appearance="outline">
+      <mat-label><span translate>Email</span></mat-label>
+      <input matInput type="email" formControlName="email" maxlength="100" />
+      <mat-error *ngIf="userForm.controls.email.hasError('required')">
+        <span translate>Email is required</span>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field style="width: 100%" appearance="outline">
+      <mat-label><span translate>Password</span></mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" maxlength="30" />
+      <mat-icon matSuffix (click)="hide = !hide" color="primary">{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+      <mat-error *ngIf="userForm.controls.password.hasError('required')">
+        <span translate>Password is required</span>
+      </mat-error>
+      <mat-error *ngIf="userForm.controls.password.hasError('minlength')">
+        <span translate>Password must be longer than 6 characters</span>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field style="width: 100%" appearance="outline">
+      <mat-label><span translate>Re-enter your password</span></mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" formControlName="passwordReentered" maxlength="30" />
+      <mat-icon matSuffix (click)="hide = !hide" color="primary">{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+      <mat-error *ngIf="userForm.controls.passwordReentered.hasError('required')">
+        <span translate>Password is required</span>
+      </mat-error>
+      <mat-error *ngIf="userForm.controls.passwordReentered.hasError('minlength')">
+        <span translate>Password must be longer than 6 characters</span>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-slide-toggle formControlName="admin">Administrador</mat-slide-toggle>
+
+    <br /><br />
+    <button mat-raised-button (click)="save()" color="primary" [disabled]="!userForm.valid">
+      <span translate>Save</span>
+    </button>
+    <button mat-button *ngIf="!newRecord" color="warn" (click)="destroy()" [disabled]="!userForm.valid">
+      <span translate>Delete</span>
+    </button>
+    <button mat-button (click)="closeDialog()"><span translate>Close</span></button>
+  </form>
+</div>

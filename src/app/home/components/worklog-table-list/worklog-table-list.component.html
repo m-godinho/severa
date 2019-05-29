@@ -1,0 +1,20 @@
+<table mat-table *ngIf="dataSource && dataSource.length > 0" [dataSource]="dataSource" class="mat-elevation-z8 worklog-table">
+
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef> Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="in">
+    <th mat-header-cell *matHeaderCellDef> In </th>
+    <td mat-cell *matCellDef="let element"> {{element.in}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="out">
+    <th mat-header-cell *matHeaderCellDef> Out </th>
+    <td mat-cell *matCellDef="let element"> {{element.out}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

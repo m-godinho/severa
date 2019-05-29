@@ -1,0 +1,117 @@
+<div fxFill fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1.5rem" class="mat-typography bg">
+  <div class="bird-container bird-container--one">
+    <div class="bird bird--one"></div>
+  </div>
+  <div class="bird-container bird-container--two">
+    <div class="bird bird--two"></div>
+  </div>
+  <div class="bird-container bird-container--three">
+    <div class="bird bird--three"></div>
+  </div>
+  <div class="bird-container bird-container--four">
+    <div class="bird bird--four"></div>
+  </div>
+  <div class="login-container" fxLayout="row" fxLayoutAlign="center">
+    <mat-card fxFlex="90%" fxFlex.sm="66%" fxFlex.md="50%" fxFlex.gt-md="33%" class="login-box">
+      <div fxLayout="column" class="login-header">
+        <div class="full-width">
+          <img src="../../assets/login.png" width="100px" />
+        </div>
+        <div class="full-width">
+          <span class="login-typo" translate>Welcome, pal!</span>
+        </div>
+        <div class="language-selector">
+          <button mat-icon-button color="primary" [matMenuTriggerFor]="languageMenu">
+            <mat-icon>language_outline</mat-icon>
+          </button>
+          <mat-menu #languageMenu="matMenu">
+            <button mat-menu-item *ngFor="let language of languages" (click)="setLanguage(language)">
+              {{ language }}
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+      <div class="login-content">
+        <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+          <div class="login-error" [hidden]="!error || isLoading" translate>Username or password incorrect</div>
+          <br />
+          <div fxLayout="column">
+            <mat-form-field appearance="outline">
+              <mat-label><span translate>Username</span></mat-label>
+              <input
+                type="text"
+                matInput
+                formControlName="username"
+                autocomplete="username"
+                [placeholder]="'Username' | translate"
+                required
+              />
+              <mat-error *ngIf="!loginForm.controls.username.valid">
+                <span translate>Username is required</span>
+              </mat-error>
+              <mat-icon
+                matSuffix
+                [color]="
+                  !loginForm.controls.username.hasError('required') || loginForm.controls.username.untouched
+                    ? 'primary'
+                    : 'warn'
+                "
+                >perm_identity_outline
+              </mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label><span translate>Password</span></mat-label>
+              <input
+                [type]="hide ? 'password' : 'text'"
+                matInput
+                formControlName="password"
+                autocomplete="current-password"
+                [placeholder]="'Password' | translate"
+                required
+              />
+              <div matSuffix class="suffixIcons">
+                <mat-icon
+                  (click)="hide = !hide"
+                  [color]="
+                    !loginForm.controls.password.hasError('required') || loginForm.controls.password.untouched
+                      ? 'primary'
+                      : 'warn'
+                  "
+                >
+                  {{ hide ? 'visibility_off' : 'visibility' }}
+                </mat-icon>
+                <mat-icon
+                  [color]="
+                    !loginForm.controls.password.hasError('required') || loginForm.controls.password.untouched
+                      ? 'primary'
+                      : 'warn'
+                  "
+                >
+                  lock_outline
+                </mat-icon>
+              </div>
+              <mat-error *ngIf="!loginForm.controls.password.valid">
+                <span translate>Password is required</span>
+              </mat-error>
+            </mat-form-field>
+            <br />
+            <mat-slide-toggle color="primary" formControlName="remember"
+              ><span translate>Remember me</span></mat-slide-toggle
+            >
+            <br />
+            <button
+              class="btn-login"
+              mat-raised-button
+              color="primary"
+              type="submit"
+              [disabled]="loginForm.invalid || isLoading"
+            >
+              <app-loader class="inline-loader" [isLoading]="isLoading"></app-loader>
+              <span translate>Login</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </mat-card>
+  </div>
+</div>
